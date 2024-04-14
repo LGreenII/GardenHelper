@@ -27,7 +27,7 @@ def main():
         st.write('Hardiness Zone and Germination Time for Various Fruit by Zip Code')
         st.write(lch.usda_hardiness_zones(zip_code))
         if st.sidebar.button('Create Map'):
-            st.sidebar.write("Coming Soon!")
+            st.write("Map Feature Coming Soon!")
             st.map(lch.get_map_data_frame(zip_code), latitude='lat', longitude='long', size=500, color='color')
             st.pydeck_chart(
                 viewport={
