@@ -1,0 +1,10 @@
+certifi==2024.2.2
+geopy==2.4.1
+langchain==0.1.16
+langchain_community==0.0.32
+langchain_google_genai==1.0.2
+numpy==1.26.4
+openai==1.17.1
+pandas==2.2.2
+python-dotenv==1.0.1
+streamlit==1.32.2
