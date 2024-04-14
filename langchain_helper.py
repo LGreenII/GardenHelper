@@ -1,4 +1,4 @@
-from openai import OpenAI
+import openai
 import os
 from dotenv import load_dotenv
 from secret_key import openai_key
