@@ -22,7 +22,8 @@ google_api_key = os.environ["GOOGLE_PALM_KEY"]
 openai.api_key = os.environ["openai_key"]
 
 # Create LLM Model
-llm = ChatGoogleGenerativeAI(model="gemini-1.0-pro-001", google_api_key=google_api_key, convert_system_message_to_human=True)
+llm = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=google_api_key,
+                             convert_system_message_to_human=True)
 
 # Create Embeddings
 instructor_embeddings = HuggingFaceInstructEmbeddings()
@@ -53,11 +54,13 @@ QUESTION: {question}"""
 
     PROMPT = PromptTemplate(template=prompt_template, input_variables=["context", "question"])
 
-    chain = RetrievalQA.from_llm(
+    chain = RetrievalQA.from_chain_type(
                         llm=llm,
+                        chain_type="stuff",
                         retriever=retriever,
                         input_key="query",
-                        return_source_documents=True)
+                        return_source_documents=True,
+                        chain_type_kwargs={"prompt": PROMPT})
 
     return chain
 
