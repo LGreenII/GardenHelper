@@ -22,7 +22,7 @@ google_api_key = os.environ["GOOGLE_PALM_KEY"]
 openai.api_key = os.environ["openai_key"]
 
 # Create LLM Model
-llm = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=google_api_key)
+llm = ChatGoogleGenerativeAI(model="gemini-1.0-pro-001", google_api_key=google_api_key, convert_system_message_to_human=True)
 
 # Create Embeddings
 instructor_embeddings = HuggingFaceInstructEmbeddings()
